@@ -9,6 +9,8 @@ import com.switchfully.orderapplication.service.UserService;
 import com.switchfully.orderapplication.service.dto.CreateUserDto;
 import com.switchfully.orderapplication.service.dto.UserDto;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/users")
 public class UserController {
@@ -26,5 +28,11 @@ public class UserController {
     public UserDto registerUser (@RequestBody CreateUserDto userToCreate) {
         logger.info("Handle request to create a user in application");
         return userservice.createUser(userToCreate);
+    }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public List<UserDto> getAllUsersInApplication() {
+        return userservice.getAll();
     }
 }
