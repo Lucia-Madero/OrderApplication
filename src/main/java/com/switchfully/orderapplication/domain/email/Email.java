@@ -1,6 +1,7 @@
-package com.switchfully.orderapplication.domain;
+package com.switchfully.orderapplication.domain.email;
 
 import java.util.Objects;
+
 
 public class Email {
 

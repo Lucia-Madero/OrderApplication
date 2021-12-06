@@ -1,6 +1,6 @@
 package com.switchfully.orderapplication.service.mapper;
 
-import com.switchfully.orderapplication.domain.User;
+import com.switchfully.orderapplication.domain.user.User;
 import com.switchfully.orderapplication.service.dto.CreateUserDto;
 import com.switchfully.orderapplication.service.dto.UserDto;
 import org.springframework.stereotype.Component;
@@ -19,6 +19,7 @@ public class UserMapper {
 
     public UserDto mapUserToUserDto(User savedUser) {
         return new UserDto()
+                .setId(savedUser.getId())
                 .setFirstName(savedUser.getFirstName())
                 .setLastName(savedUser.getLastName())
                 .setEmail(savedUser.getEmail())

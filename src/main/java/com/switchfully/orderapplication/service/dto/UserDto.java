@@ -1,14 +1,14 @@
 package com.switchfully.orderapplication.service.dto;
 
-import com.switchfully.orderapplication.domain.Address;
-import com.switchfully.orderapplication.domain.Email;
-import com.switchfully.orderapplication.domain.PhoneNumber;
+import com.switchfully.orderapplication.domain.adress.Address;
+import com.switchfully.orderapplication.domain.email.Email;
+import com.switchfully.orderapplication.domain.phoneNumber.PhoneNumber;
 
 import java.util.UUID;
 
 public class UserDto {
 
-    private UUID id = UUID.randomUUID();
+    private UUID id;
     private String firstName;
     private String lastName;
     private Email email;
@@ -17,6 +17,11 @@ public class UserDto {
 
     public UUID getId() {
         return id;
+    }
+
+    public UserDto setId(UUID id) {
+        this.id = id;
+        return this;
     }
 
     public String getFirstName() {

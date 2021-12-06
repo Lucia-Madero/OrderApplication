@@ -1,4 +1,8 @@
-package com.switchfully.orderapplication.domain;
+package com.switchfully.orderapplication.domain.user;
+
+import com.switchfully.orderapplication.domain.adress.Address;
+import com.switchfully.orderapplication.domain.email.Email;
+import com.switchfully.orderapplication.domain.phoneNumber.PhoneNumber;
 
 import java.util.UUID;
 
@@ -8,7 +12,9 @@ public class User {
     private String firstName;
     private String lastName;
     private Email email;
+
     private Address address;
+
     private PhoneNumber phoneNumber;
 
     public User(String firstName, String lastName, Email email, Address address, PhoneNumber phoneNumber) {
@@ -27,6 +33,7 @@ public class User {
         return firstName;
     }
 
+
     public User setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
@@ -35,6 +42,7 @@ public class User {
     public String getLastName() {
         return lastName;
     }
+
 
     public User setLastName(String lastName) {
         this.lastName = lastName;

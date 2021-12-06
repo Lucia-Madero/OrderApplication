@@ -1,8 +1,8 @@
 package com.switchfully.orderapplication.service.dto;
 
-import com.switchfully.orderapplication.domain.Address;
-import com.switchfully.orderapplication.domain.Email;
-import com.switchfully.orderapplication.domain.PhoneNumber;
+import com.switchfully.orderapplication.domain.adress.Address;
+import com.switchfully.orderapplication.domain.email.Email;
+import com.switchfully.orderapplication.domain.phoneNumber.PhoneNumber;
 
 public class CreateUserDto {
 
@@ -55,5 +55,16 @@ public class CreateUserDto {
     public CreateUserDto setPhoneNumber(PhoneNumber phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "CreateUserDto{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email=" + email +
+                ", address=" + address +
+                ", phoneNumber=" + phoneNumber +
+                '}';
     }
 }

@@ -1,6 +1,6 @@
 package com.switchfully.orderapplication.service;
 
-import com.switchfully.orderapplication.domain.User;
+import com.switchfully.orderapplication.domain.user.User;
 import com.switchfully.orderapplication.service.dto.CreateUserDto;
 import com.switchfully.orderapplication.service.dto.UserDto;
 import org.springframework.stereotype.Service;
@@ -10,8 +10,8 @@ import com.switchfully.orderapplication.service.mapper.UserMapper;
 @Service
 public class UserService {
 
-    private UserMapper userMapper;
-    private UserRepository userRepository;
+    private final UserMapper userMapper;
+    private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;

@@ -1,4 +1,4 @@
-package com.switchfully.orderapplication.domain;
+package com.switchfully.orderapplication.domain.adress;
 
 import java.util.Objects;
 

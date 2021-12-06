@@ -1,6 +1,6 @@
 package com.switchfully.orderapplication.repository;
 
-import com.switchfully.orderapplication.domain.User;
+import com.switchfully.orderapplication.domain.user.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
