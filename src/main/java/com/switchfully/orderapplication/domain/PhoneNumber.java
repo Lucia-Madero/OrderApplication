@@ -12,6 +12,14 @@ public class PhoneNumber {
         this.number = number;
     }
 
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

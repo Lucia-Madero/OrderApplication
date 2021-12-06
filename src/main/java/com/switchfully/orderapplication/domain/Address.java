@@ -16,6 +16,22 @@ public class Address {
         this.city = city;
     }
 
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public String getStreetNumber() {
+        return streetNumber;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

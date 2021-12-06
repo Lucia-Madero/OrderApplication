@@ -20,7 +20,7 @@ public class UserService {
 
     public UserDto createUser(CreateUserDto userToCreate) {
        User newUser = userMapper.mapFromCreateDtoToUser(userToCreate);
-       User savedUser = userRepository.save(newUser);
-       return userMapper.mapUserToUserDto(savedUser);
+       userRepository.save(newUser);
+       return userMapper.mapUserToUserDto(newUser);
     }
 }

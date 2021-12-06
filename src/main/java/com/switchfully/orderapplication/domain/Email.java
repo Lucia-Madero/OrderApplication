@@ -12,6 +12,14 @@ public class Email {
         this.domain = domain;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
