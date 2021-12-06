@@ -10,6 +10,7 @@ import com.switchfully.orderapplication.service.dto.CreateUserDto;
 import com.switchfully.orderapplication.service.dto.UserDto;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(path = "/users")
@@ -34,5 +35,11 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     public List<UserDto> getAllUsersInApplication() {
         return userservice.getAll();
+    }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserDto getUserById(@PathVariable ("id") UUID id) {
+        return userservice.getUserById(id);
     }
 }

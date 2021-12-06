@@ -19,4 +19,8 @@ public class UserRepository {
     public List<User> getAll() {
        return users.values().stream().toList();
     }
+
+    public User getById(UUID id) {
+        return users.get(id);
+    }
 }
