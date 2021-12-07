@@ -34,5 +34,7 @@ public class ItemGroup {
         return this;
     }
 
-
+    public UUID getSelectedItemId() {
+        return selectedItemId;
+    }
 }

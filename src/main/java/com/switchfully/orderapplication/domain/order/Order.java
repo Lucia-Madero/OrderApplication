@@ -1,6 +1,8 @@
 package com.switchfully.orderapplication.domain.order;
 
+import com.switchfully.orderapplication.domain.item.Item;
 import com.switchfully.orderapplication.domain.item.ItemGroup;
+import com.switchfully.orderapplication.repository.ItemRepository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -35,5 +37,12 @@ public class Order {
         return mapUserAndItemGroupById;
     }
 
-
+    public int calculateTotalPriceOfOrder(List<ItemGroup> itemGroups) {
+        int price = 0;
+        for (ItemGroup item : itemGroups) {
+           Item itemInItemGroup = ItemRepository.getItemById(item.getSelectedItemId());
+           price = itemInItemGroup.getPrice();
+        }
+        return price;
+    }
 }
