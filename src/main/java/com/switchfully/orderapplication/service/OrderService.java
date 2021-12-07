@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
@@ -29,13 +28,13 @@ public class OrderService {
 
     public OrderDto processNewOrder(CreateOrderDto createOrderDto) {
         Order incomingOrder = orderMapper.mapCreateOrderDtoToOrder(createOrderDto);
-
-        incomingOrder.setTotalPriceOfOrder(calculateTotalPriceOfOrder(incomingOrder.getItemGroupsInOrder())) ;
+        incomingOrder.setTotalPriceOfOrder(calculateTotalPriceOfOrder(incomingOrder.getItemGroupsInOrder()));
+        calculateShippingDateOfItemGroup(incomingOrder.getItemGroupsInOrder());
         orderRepository.save(incomingOrder);
         return orderMapper.mapOrderToOrderDto(incomingOrder);
     }
 
-    public void calculateShippingDateOfOrder(List<ItemGroup> itemGroups) {
+    public void calculateShippingDateOfItemGroup(List<ItemGroup> itemGroups) {
         for (ItemGroup eachItem : itemGroups) {
             Item item = itemRepository.getItemById(eachItem.getSelectedItemId());
             if (item.isInStock(item)) {
@@ -46,16 +45,16 @@ public class OrderService {
         }
     }
 
-        public int calculateTotalPriceOfOrder (List<ItemGroup> itemGroups) {
-            int price = 0;
-            int amount = 0;
-            for (ItemGroup item : itemGroups) {
-                Item itemInItemGroup = itemRepository.getItemById(item.getSelectedItemId());
-                price = itemInItemGroup.getPrice();
-                amount = item.getAmount();
+    public int calculateTotalPriceOfOrder(List<ItemGroup> itemGroups) {
+        int price = 0;
+        int amount = 0;
+        for (ItemGroup item : itemGroups) {
+            Item itemInItemGroup = itemRepository.getItemById(item.getSelectedItemId());
+            price = itemInItemGroup.getPrice();
+            amount = item.getAmount();
 
-            }
-            return price * amount;
         }
-
+        return price * amount;
     }
+
+}

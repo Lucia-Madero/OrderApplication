@@ -1,9 +1,6 @@
 package com.switchfully.orderapplication.domain.order;
 
-import com.switchfully.orderapplication.domain.item.Item;
 import com.switchfully.orderapplication.domain.item.ItemGroup;
-import com.switchfully.orderapplication.repository.ItemRepository;
-import org.apache.tomcat.jni.Local;
 
 import java.time.LocalDate;
 import java.util.List;

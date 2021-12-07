@@ -19,5 +19,5 @@ public class OrderMapper {
                 .setItemGroupsInOrder(order.getItemGroupsInOrder())
                 .setTotalPriceInOrder(order.getTotalPriceOfOrder())
                 .setCustomerId(order.getCustomerId());
-    }
+   }
 }

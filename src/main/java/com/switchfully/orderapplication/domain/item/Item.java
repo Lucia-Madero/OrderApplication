@@ -38,7 +38,7 @@ public class Item {
     }
 
     public boolean isInStock (Item itemToCheck) {
-        return itemToCheck.getAmountInStock() <= 1;
+        return itemToCheck.getAmountInStock() >= 1;
     }
 
 }

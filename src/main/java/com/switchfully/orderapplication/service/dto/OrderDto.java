@@ -2,6 +2,7 @@ package com.switchfully.orderapplication.service.dto;
 
 import com.switchfully.orderapplication.domain.item.ItemGroup;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,6 +12,7 @@ public class OrderDto {
     private List<ItemGroup> itemGroupsInOrder;
     private int totalPriceInOrder;
     private UUID customerId;
+    private LocalDate shippingDate;
 
     public UUID getUuid() {
         return uuid;
@@ -33,6 +35,11 @@ public class OrderDto {
 
     public OrderDto setCustomerId(UUID customerId) {
         this.customerId = customerId;
+        return this;
+    }
+
+    public OrderDto setShippingDate(LocalDate shippingDate) {
+        this.shippingDate = shippingDate;
         return this;
     }
 
