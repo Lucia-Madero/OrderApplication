@@ -5,17 +5,19 @@ import com.switchfully.orderapplication.repository.ItemRepository;
 import java.time.LocalDate;
 import java.util.UUID;
 
+
 public class ItemGroup {
 
-    private final UUID itemGroupReference = UUID.randomUUID();
+    private final UUID itemGroupReference;
     private final UUID selectedItemId;
     private final int amount;
     private LocalDate shippingDate;
 
-    public ItemGroup(UUID selectedItemId, int amount, LocalDate shippingDate) {
+    public ItemGroup(UUID selectedItemId, int amount) {
+        itemGroupReference = UUID.randomUUID();
         this.selectedItemId = selectedItemId;
         this.amount = amount;
-        this.shippingDate = shippingDate;
+        this.shippingDate = calculateShippingDateOfItemGroup();
     }
 
     public LocalDate calculateShippingDateOfItemGroup(){
@@ -36,5 +38,9 @@ public class ItemGroup {
 
     public UUID getSelectedItemId() {
         return selectedItemId;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 }

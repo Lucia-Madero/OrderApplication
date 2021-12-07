@@ -10,7 +10,7 @@ public class CreateOrderDto {
     private List<ItemGroup> itemGroupsInOrder;
     private UUID customerId;
 
-    public List<ItemGroup> getItemGroupsInOder() {
+    public List<ItemGroup> getItemGroupsInOrder() {
         return itemGroupsInOrder;
     }
 
@@ -23,8 +23,5 @@ public class CreateOrderDto {
         return customerId;
     }
 
-    public CreateOrderDto setCustomerId(UUID customerId) {
-        this.customerId = customerId;
-        return this;
-    }
+
 }

@@ -9,15 +9,15 @@ import org.springframework.stereotype.Component;
 public class OrderMapper {
 
     public Order mapCreateOrderDtoToOrder(CreateOrderDto createOrderDto) {
-        return new Order(createOrderDto.getItemGroupsInOder(),
+        return new Order(createOrderDto.getItemGroupsInOrder(),
                    createOrderDto.getCustomerId());
     }
 
     public OrderDto mapOrderToOrderDto(Order order){
         return new OrderDto()
                 .setUuid(order.getOrderId())
-                .setItemGroupsInOder(order.getItemGroupsInOrder())
-                .setMapUserAndItemGroupById(order.getMapUserAndItemGroupById())
-                .setTotalPriceInOrder(order.getTotalPriceOfOrder());
+                .setItemGroupsInOrder(order.getItemGroupsInOrder())
+                .setTotalPriceInOrder(order.getTotalPriceOfOrder())
+                .setCustomerId(order.getCustomerId());
     }
 }
