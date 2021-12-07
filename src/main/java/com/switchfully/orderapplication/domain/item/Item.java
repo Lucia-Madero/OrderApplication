@@ -1,5 +1,7 @@
 package com.switchfully.orderapplication.domain.item;
 
+import com.switchfully.orderapplication.domain.stock.Stock;
+
 import java.util.UUID;
 
 public class Item {
@@ -8,9 +10,9 @@ public class Item {
     private final String name;
     private final String description;
     private final int price;
-    private final int amount;
+    private final Stock amount;
 
-    public Item(String name, String description, int price, int amount) {
+    public Item(String name, String description, int price, Stock amount) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -33,7 +35,7 @@ public class Item {
         return price;
     }
 
-    public int getAmount() {
+    public Stock getAmount() {
         return amount;
     }
 }
