@@ -9,7 +9,7 @@ import java.util.UUID;
 @Repository
 public class ItemRepository {
 
-    private static final HashMap<UUID, Item> itemsInShop = new HashMap<>();
+    private final HashMap<UUID, Item> itemsInShop = new HashMap<>();
 
     public ItemRepository() {
     }
@@ -18,7 +18,7 @@ public class ItemRepository {
         itemsInShop.put(itemToAdd.getId(), itemToAdd);
     }
 
-    public static Item getItemById (UUID itemId) {
+    public Item getItemById (UUID itemId) {
         return itemsInShop.get(itemId);
     }
 }

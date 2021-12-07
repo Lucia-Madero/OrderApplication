@@ -17,19 +17,8 @@ public class ItemGroup {
         itemGroupReference = UUID.randomUUID();
         this.selectedItemId = selectedItemId;
         this.amount = amount;
-        this.shippingDate = calculateShippingDateOfItemGroup();
     }
 
-    public LocalDate calculateShippingDateOfItemGroup(){
-        Item item = ItemRepository.getItemById(selectedItemId);
-        if (item.isInStock(item)) {
-            setShippingDate(LocalDate.now().plusDays(1));
-        }
-        else {
-            setShippingDate(LocalDate.now().plusDays(7));
-        }
-        return shippingDate;
-    }
 
     public ItemGroup setShippingDate(LocalDate shippingDate) {
         this.shippingDate = shippingDate;
@@ -38,6 +27,10 @@ public class ItemGroup {
 
     public UUID getSelectedItemId() {
         return selectedItemId;
+    }
+
+    public LocalDate getShippingDate() {
+        return shippingDate;
     }
 
     public int getAmount() {
