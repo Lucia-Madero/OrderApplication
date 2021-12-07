@@ -7,4 +7,8 @@ public class Stock {
     public Stock(int amount) {
         this.amount = amount;
     }
+
+    public int getAmountInStock() {
+        return amount;
+    }
 }

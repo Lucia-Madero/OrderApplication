@@ -38,4 +38,9 @@ public class Item {
     public Stock getAmount() {
         return amount;
     }
+
+//    public boolean isInStock (UUID itemId) {
+//        return getAmount().getAmountInStock() <= 1;
+//    }
+
 }

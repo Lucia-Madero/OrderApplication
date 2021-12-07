@@ -13,18 +13,14 @@ import org.springframework.web.bind.annotation.*;
 public class ItemController {
 
     ItemService itemService;
-    ItemRepository itemRepository;
 
-    public ItemController(ItemService itemService, ItemRepository itemRespository) {
+    public ItemController(ItemService itemService) {
         this.itemService = itemService;
-        this.itemRepository = itemRespository;
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public ItemDto addItem(@RequestBody CreateItemDto createItemDto) {
        return itemService.addItem(createItemDto);
-
-
     }
 }

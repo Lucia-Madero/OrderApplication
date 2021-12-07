@@ -15,5 +15,6 @@ public class ItemRepository {
     }
 
     public void add(Item itemToAdd) {
+        itemsInShop.put(itemToAdd.getId(), itemToAdd);
     }
 }
