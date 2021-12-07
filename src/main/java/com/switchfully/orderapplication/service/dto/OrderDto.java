@@ -2,7 +2,6 @@ package com.switchfully.orderapplication.service.dto;
 
 import com.switchfully.orderapplication.domain.item.ItemGroup;
 
-import javax.naming.ldap.HasControls;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -12,7 +11,7 @@ public class OrderDto {
     private UUID uuid = UUID.randomUUID();
     private List<ItemGroup> itemGroupsInOder;
     private int totalPriceInOrder;
-    private HashMap<UUID, UUID> mapUserAndItemGroupById;
+    private HashMap<UUID, UUID> mapItemGroupByIdAndUserId;
 
     public UUID getUuid() {
         return uuid;
@@ -42,11 +41,11 @@ public class OrderDto {
     }
 
     public HashMap<UUID, UUID> getMapUserAndItemGroupById() {
-        return mapUserAndItemGroupById;
+        return mapItemGroupByIdAndUserId;
     }
 
     public OrderDto setMapUserAndItemGroupById(HashMap<UUID, UUID> mapUserAndItemGroupById) {
-        this.mapUserAndItemGroupById = mapUserAndItemGroupById;
+        this.mapItemGroupByIdAndUserId = mapUserAndItemGroupById;
         return this;
     }
 }

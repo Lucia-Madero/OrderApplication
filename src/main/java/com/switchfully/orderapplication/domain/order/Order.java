@@ -13,12 +13,12 @@ public class Order {
     private final UUID orderId = UUID.randomUUID();
     private final List<ItemGroup> itemGroupsInOrder;
     private final int totalPriceOfOrder;
-    private final HashMap<UUID, UUID> mapUserAndItemGroupById;
+    private final HashMap<UUID, UUID> mapItemGroupByIdAndUserId = new HashMap<>();
 
-    public Order(List<ItemGroup> itemGroupsInOrder, int totalPriceOfOrder, HashMap<UUID, UUID> mapUserAndItemGroupById) {
+    public Order(List<ItemGroup> itemGroupsInOrder, UUID customerId) {
         this.itemGroupsInOrder = itemGroupsInOrder;
-        this.totalPriceOfOrder = totalPriceOfOrder;
-        this.mapUserAndItemGroupById = mapUserAndItemGroupById;
+        this.totalPriceOfOrder = calculateTotalPriceOfOrder(itemGroupsInOrder);
+        mapItemGroupByIdAndUserId.put(orderId,customerId);
     }
 
     public UUID getOrderId() {
@@ -34,7 +34,7 @@ public class Order {
     }
 
     public HashMap<UUID, UUID> getMapUserAndItemGroupById() {
-        return mapUserAndItemGroupById;
+        return mapItemGroupByIdAndUserId;
     }
 
     public int calculateTotalPriceOfOrder(List<ItemGroup> itemGroups) {

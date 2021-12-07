@@ -2,40 +2,29 @@ package com.switchfully.orderapplication.service.dto;
 
 import com.switchfully.orderapplication.domain.item.ItemGroup;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
 public class CreateOrderDto {
 
-    private List<ItemGroup> itemGroupsInOder;
-    private int totalPriceInOrder;
-    private HashMap<UUID, UUID> mapUserAndItemGroupById;
+    private List<ItemGroup> itemGroupsInOrder;
+    private UUID customerId;
 
     public List<ItemGroup> getItemGroupsInOder() {
-        return itemGroupsInOder;
+        return itemGroupsInOrder;
     }
 
-    public CreateOrderDto setItemGroupsInOder(List<ItemGroup> itemGroupsInOder) {
-        this.itemGroupsInOder = itemGroupsInOder;
+    public CreateOrderDto setItemGroupsInOrder(List<ItemGroup> itemGroupsInOder) {
+        this.itemGroupsInOrder = itemGroupsInOder;
         return this;
     }
 
-    public int getTotalPriceInOrder() {
-        return totalPriceInOrder;
+    public UUID getCustomerId() {
+        return customerId;
     }
 
-    public CreateOrderDto setTotalPriceInOrder(int totalPriceInOrder) {
-        this.totalPriceInOrder = totalPriceInOrder;
-        return this;
-    }
-
-    public HashMap<UUID, UUID> getMapUserAndItemGroupById() {
-        return mapUserAndItemGroupById;
-    }
-
-    public CreateOrderDto setMapUserAndItemGroupById(HashMap<UUID, UUID> mapUserAndItemGroupById) {
-        this.mapUserAndItemGroupById = mapUserAndItemGroupById;
+    public CreateOrderDto setCustomerId(UUID customerId) {
+        this.customerId = customerId;
         return this;
     }
 }

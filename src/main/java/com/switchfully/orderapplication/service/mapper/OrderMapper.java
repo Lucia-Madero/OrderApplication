@@ -10,8 +10,7 @@ public class OrderMapper {
 
     public Order mapCreateOrderDtoToOrder(CreateOrderDto createOrderDto) {
         return new Order(createOrderDto.getItemGroupsInOder(),
-                createOrderDto.getTotalPriceInOrder(),
-                createOrderDto.getMapUserAndItemGroupById());
+                   createOrderDto.getCustomerId());
     }
 
     public OrderDto mapOrderToOrderDto(Order order){
