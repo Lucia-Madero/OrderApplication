@@ -1,13 +1,11 @@
 package com.switchfully.orderapplication.service.dto;
 
-import com.switchfully.orderapplication.domain.stock.Stock;
-
 public class CreateItemDto {
 
     private String name;
     private String description;
     private int price;
-    private Stock amount;
+    private int amountInStock;
 
     public String getName() {
         return name;
@@ -36,12 +34,12 @@ public class CreateItemDto {
         return this;
     }
 
-    public Stock getAmount() {
-        return amount;
+    public int getAmountInStock() {
+        return amountInStock;
     }
 
-    public CreateItemDto setAmount(Stock amount) {
-        this.amount = amount;
+    public CreateItemDto setAmount(int amount) {
+        this.amountInStock = amount;
         return this;
     }
 }

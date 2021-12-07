@@ -1,7 +1,5 @@
 package com.switchfully.orderapplication.domain.item;
 
-import com.switchfully.orderapplication.domain.stock.Stock;
-
 import java.util.UUID;
 
 public class Item {
@@ -10,13 +8,13 @@ public class Item {
     private final String name;
     private final String description;
     private final int price;
-    private final Stock amount;
+    private final int amountInStock;
 
-    public Item(String name, String description, int price, Stock amount) {
+    public Item(String name, String description, int price, int amountInStock) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.amount = amount;
+        this.amountInStock = amountInStock;
     }
 
     public UUID getId() {
@@ -35,12 +33,12 @@ public class Item {
         return price;
     }
 
-    public Stock getAmount() {
-        return amount;
+    public int getAmountInStock() {
+        return amountInStock;
     }
 
-//    public boolean isInStock (UUID itemId) {
-//        return getAmount().getAmountInStock() <= 1;
-//    }
+    public boolean isInStock (Item itemToCheck) {
+        return itemToCheck.getAmountInStock() <= 1;
+    }
 
 }

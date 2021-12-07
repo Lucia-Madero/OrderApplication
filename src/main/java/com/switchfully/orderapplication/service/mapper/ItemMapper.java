@@ -12,7 +12,7 @@ public class ItemMapper {
         return new Item(createItemDto.getName(),
                 createItemDto.getDescription(),
                 createItemDto.getPrice(),
-                createItemDto.getAmount());
+                createItemDto.getAmountInStock());
     }
 
     public ItemDto mapItemToItemDto(Item item) {
@@ -21,7 +21,7 @@ public class ItemMapper {
                 .setName(item.getName())
                 .setDescription(item.getDescription())
                 .setPrice(item.getPrice())
-                .setAmount(item.getAmount());
+                .setAmount(item.getAmountInStock());
 
     }
 }

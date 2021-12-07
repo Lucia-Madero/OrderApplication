@@ -1,5 +1,7 @@
 package com.switchfully.orderapplication.domain.item;
 
+import com.switchfully.orderapplication.repository.ItemRepository;
+
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -16,15 +18,16 @@ public class ItemGroup {
         this.shippingDate = shippingDate;
     }
 
-//    public LocalDate calculateShippingDateOfItemGroup(){
-//        if () {
-//            setShippingDate(LocalDate.now().plusDays(1));
-//        }
-//        else {
-//            setShippingDate(LocalDate.now().plusDays(7));
-//        }
-//        return shippingDate;
-//    }
+    public LocalDate calculateShippingDateOfItemGroup(){
+        Item item = ItemRepository.getItemById(selectedItemId);
+        if (item.isInStock(item)) {
+            setShippingDate(LocalDate.now().plusDays(1));
+        }
+        else {
+            setShippingDate(LocalDate.now().plusDays(7));
+        }
+        return shippingDate;
+    }
 
     public ItemGroup setShippingDate(LocalDate shippingDate) {
         this.shippingDate = shippingDate;
