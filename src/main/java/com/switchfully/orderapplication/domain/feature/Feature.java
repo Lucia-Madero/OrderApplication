@@ -4,4 +4,5 @@ public enum Feature {
     ADD_ITEM,
     VIEW_ALL_CUSTOMERS,
     VIEW_SINGLE_CUSTOMER,
+    UPDATE_ITEM
 }

@@ -3,6 +3,7 @@ package com.switchfully.orderapplication.service.mapper;
 import com.switchfully.orderapplication.domain.item.Item;
 import com.switchfully.orderapplication.service.dto.CreateItemDto;
 import com.switchfully.orderapplication.service.dto.ItemDto;
+import com.switchfully.orderapplication.service.dto.UpdateItemDto;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,5 +24,12 @@ public class ItemMapper {
                 .setPrice(item.getPrice())
                 .setAmount(item.getAmountInStock());
 
+    }
+
+    public Item mapUpdateItemDtoToItemDto(UpdateItemDto updateItemDto) {
+        return new Item(updateItemDto.getName(),
+                updateItemDto.getDescription(),
+                updateItemDto.getPrice(),
+                updateItemDto.getAmountInStock());
     }
 }

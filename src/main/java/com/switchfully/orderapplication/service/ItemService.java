@@ -5,10 +5,12 @@ import com.switchfully.orderapplication.domain.item.ItemGroup;
 import com.switchfully.orderapplication.repository.ItemRepository;
 import com.switchfully.orderapplication.service.dto.CreateItemDto;
 import com.switchfully.orderapplication.service.dto.ItemDto;
+import com.switchfully.orderapplication.service.dto.UpdateItemDto;
 import com.switchfully.orderapplication.service.mapper.ItemMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -37,5 +39,11 @@ public class ItemService {
     }
     public void updateStock (List<ItemGroup> itemGroupsInOrder){
        subtractOrderedAmountOfItemsInOrderFromStock(itemGroupsInOrder);
+    }
+
+    public ItemDto updateItem(UpdateItemDto updateItemDto, UUID itemId) {
+       Item itemToUpdate= itemMapper.mapUpdateItemDtoToItemDto(updateItemDto);
+       itemRepository.add(itemToUpdate);
+       return itemMapper.mapItemToItemDto(itemToUpdate);
     }
 }

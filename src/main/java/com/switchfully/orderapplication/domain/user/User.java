@@ -33,7 +33,7 @@ public class User {
 
 
     public enum Role {
-        ADMIN(List.of(Feature.ADD_ITEM,Feature.VIEW_ALL_CUSTOMERS, Feature.VIEW_SINGLE_CUSTOMER)),
+        ADMIN(List.of(Feature.ADD_ITEM,Feature.VIEW_ALL_CUSTOMERS, Feature.VIEW_SINGLE_CUSTOMER, Feature.UPDATE_ITEM)),
         CUSTOMER(List.of());
 
         private final List<Feature> featureList;
