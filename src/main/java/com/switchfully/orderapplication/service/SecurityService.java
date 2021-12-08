@@ -1,11 +1,14 @@
 package com.switchfully.orderapplication.service;
 
+import com.switchfully.orderapplication.api.UserController;
 import com.switchfully.orderapplication.domain.exception.UnknownUserException;
 import com.switchfully.orderapplication.domain.exception.UserNotAuthorizedException;
 import com.switchfully.orderapplication.domain.exception.WrongPasswordException;
 import com.switchfully.orderapplication.domain.feature.Feature;
 import com.switchfully.orderapplication.domain.user.User;
 import com.switchfully.orderapplication.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Base64;
@@ -16,6 +19,7 @@ public class SecurityService {
 
     private final UserRepository userRepository;
     private final UserService userService;
+    private final Logger logger = LoggerFactory.getLogger(SecurityService.class);
 
     public SecurityService(UserRepository userRepository, UserService userService) {
         this.userRepository = userRepository;
@@ -29,6 +33,7 @@ public class SecurityService {
         User user = userService.getUserByUsername(username);
 
         if(user == null) {
+            logger.error("UnknownUser " + user.getUsername());
             throw new UnknownUserException();
         }
         if(user.getPassword().equals(password)) {
@@ -36,6 +41,7 @@ public class SecurityService {
         }
 
         if(!user.hasAccessTo(feature)){
+            logger.error("User " + user.getEmail() + " does not has access to " + feature);
             throw new UserNotAuthorizedException("You do not have access this operation");
         }
     }

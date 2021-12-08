@@ -22,6 +22,11 @@ public class Email {
     }
 
     @Override
+    public String toString() {
+        return username + "@" + domain ;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Email)) return false;
