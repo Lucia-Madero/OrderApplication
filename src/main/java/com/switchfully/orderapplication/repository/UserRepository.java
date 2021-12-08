@@ -2,7 +2,6 @@ package com.switchfully.orderapplication.repository;
 
 import com.switchfully.orderapplication.domain.email.Email;
 import com.switchfully.orderapplication.domain.user.User;
-import com.switchfully.orderapplication.service.dto.CreateUserDto;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;

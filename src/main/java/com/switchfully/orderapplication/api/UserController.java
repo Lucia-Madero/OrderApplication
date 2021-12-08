@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import com.switchfully.orderapplication.service.UserService;
-import com.switchfully.orderapplication.service.dto.CreateUserDto;
-import com.switchfully.orderapplication.service.dto.UserDto;
+import com.switchfully.orderapplication.service.dto.user.CreateUserDto;
+import com.switchfully.orderapplication.service.dto.user.UserDto;
 
 import java.util.List;
 import java.util.UUID;

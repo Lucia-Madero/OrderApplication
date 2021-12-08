@@ -5,8 +5,8 @@ import com.switchfully.orderapplication.domain.item.ItemGroup;
 import com.switchfully.orderapplication.domain.order.Order;
 import com.switchfully.orderapplication.repository.ItemRepository;
 import com.switchfully.orderapplication.repository.OrderRepository;
-import com.switchfully.orderapplication.service.dto.CreateOrderDto;
-import com.switchfully.orderapplication.service.dto.OrderDto;
+import com.switchfully.orderapplication.service.dto.order.CreateOrderDto;
+import com.switchfully.orderapplication.service.dto.order.OrderDto;
 import com.switchfully.orderapplication.service.mapper.OrderMapper;
 import org.springframework.stereotype.Service;
 

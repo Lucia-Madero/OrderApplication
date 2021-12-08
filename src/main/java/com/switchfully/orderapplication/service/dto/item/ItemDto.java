@@ -1,17 +1,29 @@
-package com.switchfully.orderapplication.service.dto;
+package com.switchfully.orderapplication.service.dto.item;
 
-public class UpdateItemDto {
+import java.util.UUID;
 
+public class ItemDto {
+
+    private UUID id = UUID.randomUUID();
     private String name;
     private String description;
     private int price;
     private int amountInStock;
 
+    public UUID getId() {
+        return id;
+    }
+
+    public ItemDto setId(UUID id) {
+        this.id = id;
+        return this;
+    }
+
     public String getName() {
         return name;
     }
 
-    public UpdateItemDto setName(String name) {
+    public ItemDto setName(String name) {
         this.name = name;
         return this;
     }
@@ -20,7 +32,7 @@ public class UpdateItemDto {
         return description;
     }
 
-    public UpdateItemDto setDescription(String description) {
+    public ItemDto setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -29,7 +41,7 @@ public class UpdateItemDto {
         return price;
     }
 
-    public UpdateItemDto setPrice(int price) {
+    public ItemDto setPrice(int price) {
         this.price = price;
         return this;
     }
@@ -38,8 +50,9 @@ public class UpdateItemDto {
         return amountInStock;
     }
 
-    public UpdateItemDto setAmountInStock(int amountInStock) {
-        this.amountInStock = amountInStock;
+    public ItemDto setAmount(int amount) {
+        this.amountInStock = amount;
         return this;
     }
+
 }

@@ -3,9 +3,9 @@ package com.switchfully.orderapplication.service;
 import com.switchfully.orderapplication.domain.item.Item;
 import com.switchfully.orderapplication.domain.item.ItemGroup;
 import com.switchfully.orderapplication.repository.ItemRepository;
-import com.switchfully.orderapplication.service.dto.CreateItemDto;
-import com.switchfully.orderapplication.service.dto.ItemDto;
-import com.switchfully.orderapplication.service.dto.UpdateItemDto;
+import com.switchfully.orderapplication.service.dto.item.CreateItemDto;
+import com.switchfully.orderapplication.service.dto.item.ItemDto;
+import com.switchfully.orderapplication.service.dto.item.UpdateItemDto;
 import com.switchfully.orderapplication.service.mapper.ItemMapper;
 import org.springframework.stereotype.Service;
 

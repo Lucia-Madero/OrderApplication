@@ -1,4 +1,4 @@
-package com.switchfully.orderapplication.service.dto;
+package com.switchfully.orderapplication.service.dto.user;
 
 import com.switchfully.orderapplication.domain.adress.Address;
 import com.switchfully.orderapplication.domain.email.Email;

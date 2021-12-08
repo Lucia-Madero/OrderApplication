@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
 import com.switchfully.orderapplication.repository.UserRepository;
 import com.switchfully.orderapplication.service.UserService;
-import com.switchfully.orderapplication.service.dto.CreateUserDto;
+import com.switchfully.orderapplication.service.dto.user.CreateUserDto;
 import com.switchfully.orderapplication.service.mapper.UserMapper;
 
 

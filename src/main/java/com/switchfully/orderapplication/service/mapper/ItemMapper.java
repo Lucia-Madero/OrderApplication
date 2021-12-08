@@ -1,9 +1,9 @@
 package com.switchfully.orderapplication.service.mapper;
 
 import com.switchfully.orderapplication.domain.item.Item;
-import com.switchfully.orderapplication.service.dto.CreateItemDto;
-import com.switchfully.orderapplication.service.dto.ItemDto;
-import com.switchfully.orderapplication.service.dto.UpdateItemDto;
+import com.switchfully.orderapplication.service.dto.item.CreateItemDto;
+import com.switchfully.orderapplication.service.dto.item.ItemDto;
+import com.switchfully.orderapplication.service.dto.item.UpdateItemDto;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,8 +1,8 @@
 package com.switchfully.orderapplication.service.mapper;
 
 import com.switchfully.orderapplication.domain.user.User;
-import com.switchfully.orderapplication.service.dto.CreateUserDto;
-import com.switchfully.orderapplication.service.dto.UserDto;
+import com.switchfully.orderapplication.service.dto.user.CreateUserDto;
+import com.switchfully.orderapplication.service.dto.user.UserDto;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,4 +1,4 @@
-package com.switchfully.orderapplication.service.dto;
+package com.switchfully.orderapplication.service.dto.order;
 
 import com.switchfully.orderapplication.domain.item.ItemGroup;
 

@@ -1,4 +1,4 @@
-package com.switchfully.orderapplication.service.dto;
+package com.switchfully.orderapplication.service.dto.item;
 
 public class CreateItemDto {
 
