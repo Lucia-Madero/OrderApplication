@@ -33,7 +33,7 @@ public class SecurityService {
         User user = userService.getUserByUsername(username);
 
         if(user == null) {
-            logger.error("UnknownUser " + user.getUsername());
+            logger.error("UnknownUser " + username);
             throw new UnknownUserException();
         }
         if(user.getPassword().equals(password)) {
