@@ -1,11 +1,14 @@
 package com.switchfully.orderapplication.repository;
 
+import com.switchfully.orderapplication.domain.email.Email;
 import com.switchfully.orderapplication.domain.user.User;
+import com.switchfully.orderapplication.service.dto.CreateUserDto;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Repository
 public class UserRepository {
@@ -22,5 +25,12 @@ public class UserRepository {
 
     public User getById(UUID id) {
         return users.get(id);
+    }
+
+
+    public List<Email> getAllEmailAddress() {
+        return users.values().stream()
+                .map(User::getEmail)
+                .collect(Collectors.toList());
     }
 }

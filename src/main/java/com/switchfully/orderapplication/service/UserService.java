@@ -23,6 +23,9 @@ public class UserService {
     }
 
     public UserDto createUser(CreateUserDto userToCreate) {
+        if (userAlreadyExists(userToCreate)){
+            throw new IllegalArgumentException("The email address already exists!");
+        }
         User newUser = userMapper.mapFromCreateDtoToUser(userToCreate);
         userRepository.save(newUser);
         return userMapper.mapUserToUserDto(newUser);
@@ -42,5 +45,9 @@ public class UserService {
         return userRepository.getAll().stream()
                 .filter(user -> user.getUsername().equals(username))
                 .findFirst().orElse(null);
+    }
+
+    public boolean userAlreadyExists(CreateUserDto createUserDto) {
+        return userRepository.getAllEmailAddress().contains(createUserDto.getEmail());
     }
 }
