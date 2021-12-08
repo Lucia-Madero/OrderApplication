@@ -1,6 +1,7 @@
 package api;
 
 import com.switchfully.orderapplication.api.UserController;
+import com.switchfully.orderapplication.service.SecurityService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -21,13 +22,14 @@ public class UserControllerTest {
     private CreateUserDto createUserDto;
     private UserService userService;
     private UserMapper userMapper;
+    private SecurityService securityService;
 
     @BeforeEach
     void setup() {
         userMapper = new UserMapper();
         userRepository = new UserRepository();
         userService = new UserService(userRepository, userMapper);
-        userController = new UserController(userService);
+        userController = new UserController(userService, securityService);
         createUserDto = new CreateUserDto();
     }
 

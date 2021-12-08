@@ -1,5 +1,7 @@
 package com.switchfully.orderapplication.api;
 
+import com.switchfully.orderapplication.domain.feature.Feature;
+import com.switchfully.orderapplication.service.SecurityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -17,11 +19,13 @@ import java.util.UUID;
 public class UserController {
 
     private final UserService userservice;
+    private final SecurityService securityService;
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 
-    public UserController(UserService userservice) {
+    public UserController(UserService userservice, SecurityService securityService) {
         this.userservice = userservice;
+        this.securityService = securityService;
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -33,13 +37,15 @@ public class UserController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public List<UserDto> getAllUsersInApplication() {
+    public List<UserDto> getAllUsersInApplication(@RequestHeader String authorization) {
+        securityService.validateAccess(authorization, Feature.VIEW_ALL_CUSTOMERS);
         return userservice.getAll();
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public UserDto getUserById(@PathVariable ("id") UUID id) {
+    public UserDto getUserById(@PathVariable ("id") UUID id, @RequestHeader String authorization) {
+        securityService.validateAccess(authorization, Feature.VIEW_SINGLE_CUSTOMER);
         return userservice.getUserById(id);
     }
 }
