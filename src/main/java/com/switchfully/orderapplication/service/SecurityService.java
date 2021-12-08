@@ -1,6 +1,5 @@
 package com.switchfully.orderapplication.service;
 
-import com.switchfully.orderapplication.api.UserController;
 import com.switchfully.orderapplication.domain.exception.UnknownUserException;
 import com.switchfully.orderapplication.domain.exception.UserNotAuthorizedException;
 import com.switchfully.orderapplication.domain.exception.WrongPasswordException;
