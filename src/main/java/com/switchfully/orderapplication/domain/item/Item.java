@@ -8,7 +8,7 @@ public class Item {
     private final String name;
     private final String description;
     private final int price;
-    private final int amountInStock;
+    private int amountInStock;
 
     public Item(String name, String description, int price, int amountInStock) {
         this.name = name;
@@ -41,4 +41,8 @@ public class Item {
         return itemToCheck.getAmountInStock() >= 1;
     }
 
+    public Item setAmountInStock(int amountInStock) {
+        this.amountInStock = amountInStock;
+        return this;
+    }
 }

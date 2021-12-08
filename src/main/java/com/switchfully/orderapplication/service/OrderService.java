@@ -19,17 +19,20 @@ public class OrderService {
     private final OrderMapper orderMapper;
     private final OrderRepository orderRepository;
     private final ItemRepository itemRepository;
+    private final ItemService itemService;
 
-    public OrderService(OrderMapper orderMapper, OrderRepository orderRepository, ItemRepository itemRepository) {
+    public OrderService(OrderMapper orderMapper, OrderRepository orderRepository, ItemRepository itemRepository, ItemService itemService) {
         this.orderMapper = orderMapper;
         this.orderRepository = orderRepository;
         this.itemRepository = itemRepository;
+        this.itemService = itemService;
     }
 
     public OrderDto processNewOrder(CreateOrderDto createOrderDto) {
         Order incomingOrder = orderMapper.mapCreateOrderDtoToOrder(createOrderDto);
         incomingOrder.setTotalPriceOfOrder(calculateTotalPriceOfOrder(incomingOrder.getItemGroupsInOrder()));
         calculateShippingDateOfItemGroup(incomingOrder.getItemGroupsInOrder());
+        itemService.updateStock(createOrderDto.getItemGroupsInOrder());
         orderRepository.save(incomingOrder);
         return orderMapper.mapOrderToOrderDto(incomingOrder);
     }
@@ -52,7 +55,6 @@ public class OrderService {
             Item itemInItemGroup = itemRepository.getItemById(item.getSelectedItemId());
             price = itemInItemGroup.getPrice();
             amount = item.getAmount();
-
         }
         return price * amount;
     }

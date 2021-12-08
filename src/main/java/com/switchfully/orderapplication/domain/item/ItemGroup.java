@@ -1,7 +1,5 @@
 package com.switchfully.orderapplication.domain.item;
 
-import com.switchfully.orderapplication.repository.ItemRepository;
-
 import java.time.LocalDate;
 import java.util.UUID;
 
