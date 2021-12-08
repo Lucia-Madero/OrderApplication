@@ -3,6 +3,7 @@ package com.switchfully.orderapplication.service.dto;
 import com.switchfully.orderapplication.domain.adress.Address;
 import com.switchfully.orderapplication.domain.email.Email;
 import com.switchfully.orderapplication.domain.phoneNumber.PhoneNumber;
+import com.switchfully.orderapplication.domain.user.User;
 
 public class CreateUserDto {
 
@@ -11,6 +12,9 @@ public class CreateUserDto {
     private Email email;
     private Address address;
     private PhoneNumber phoneNumber;
+    private String username;
+    private String password;
+    private User.Role userRole;
 
     public String getFirstName() {
         return firstName;
@@ -57,6 +61,32 @@ public class CreateUserDto {
         return this;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public CreateUserDto setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public CreateUserDto setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    public CreateUserDto setUserRole(User.Role userRole) {
+        this.userRole = userRole;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public User.Role getUserRole() {
+        return userRole;
+    }
     @Override
     public String toString() {
         return "CreateUserDto{" +
@@ -67,4 +97,7 @@ public class CreateUserDto {
                 ", phoneNumber=" + phoneNumber +
                 '}';
     }
+
+
+
 }

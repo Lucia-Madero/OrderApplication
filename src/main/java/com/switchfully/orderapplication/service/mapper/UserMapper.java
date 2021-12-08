@@ -13,7 +13,10 @@ public class UserMapper {
                 userToCreate.getLastName(),
                 userToCreate.getEmail(),
                 userToCreate.getAddress(),
-                userToCreate.getPhoneNumber());
+                userToCreate.getPhoneNumber(),
+                userToCreate.getUsername(),
+                userToCreate.getPassword(),
+                userToCreate.getUserRole());
 
     }
 
@@ -24,7 +27,10 @@ public class UserMapper {
                 .setLastName(savedUser.getLastName())
                 .setEmail(savedUser.getEmail())
                 .setAddress(savedUser.getAddress())
-                .setPhoneNumber(savedUser.getPhoneNumber());
+                .setPhoneNumber(savedUser.getPhoneNumber())
+                .setUsername(savedUser.getUsername())
+                .setPassword(savedUser.getPassword())
+                .setUserRole(savedUser.getUserRole());
 
     }
 }

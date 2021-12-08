@@ -37,4 +37,10 @@ public class UserService {
     public UserDto getUserById(UUID id) {
         return userMapper.mapUserToUserDto(userRepository.getById(id));
     }
+
+    public User getUserByUsername(String username) {
+        return userRepository.getAll().stream()
+                .filter(user -> user.getUsername().equals(username))
+                .findFirst().orElse(null);
+    }
 }
