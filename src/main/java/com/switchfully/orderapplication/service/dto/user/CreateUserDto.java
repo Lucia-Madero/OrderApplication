@@ -16,22 +16,25 @@ public class CreateUserDto {
     private String password;
     private User.Role userRole;
 
+    public CreateUserDto(String firstName, String lastName, Email email, Address address, PhoneNumber phoneNumber, String username, String password, User.Role userRole) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.username = username;
+        this.password = password;
+        this.userRole = userRole;
+    }
+
     public String getFirstName() {
         return firstName;
     }
 
-    public CreateUserDto setFirstName(String firstName) {
-        this.firstName = firstName;
-        return this;
-    }
+
 
     public String getLastName() {
         return lastName;
-    }
-
-    public CreateUserDto setLastName(String lastName) {
-        this.lastName = lastName;
-        return this;
     }
 
     public Email getEmail() {
@@ -47,38 +50,15 @@ public class CreateUserDto {
         return address;
     }
 
-    public CreateUserDto setAddress(Address address) {
-        this.address = address;
-        return this;
-    }
 
     public PhoneNumber getPhoneNumber() {
         return phoneNumber;
-    }
-
-    public CreateUserDto setPhoneNumber(PhoneNumber phoneNumber) {
-        this.phoneNumber = phoneNumber;
-        return this;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public CreateUserDto setUsername(String username) {
-        this.username = username;
-        return this;
-    }
-
-    public CreateUserDto setPassword(String password) {
-        this.password = password;
-        return this;
-    }
-
-    public CreateUserDto setUserRole(User.Role userRole) {
-        this.userRole = userRole;
-        return this;
-    }
 
     public String getPassword() {
         return password;

@@ -1,5 +1,6 @@
 package com.switchfully.orderapplication.service.dto.order;
 
+import com.switchfully.orderapplication.domain.item.Item;
 import com.switchfully.orderapplication.domain.item.ItemGroup;
 
 import java.time.LocalDate;

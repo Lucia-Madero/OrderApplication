@@ -1,5 +1,7 @@
 package com.switchfully.orderapplication.service.dto.item;
 
+import com.switchfully.orderapplication.domain.item.Item;
+
 import java.util.UUID;
 
 public class ItemDto {
@@ -9,6 +11,7 @@ public class ItemDto {
     private String description;
     private int price;
     private int amountInStock;
+
 
     public UUID getId() {
         return id;
