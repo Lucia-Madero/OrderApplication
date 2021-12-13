@@ -15,7 +15,8 @@ public class UserRepository {
     private final HashMap<UUID, User> users = new HashMap<>();
 
     public User save(User newUser) {
-       return users.put(newUser.getId(), newUser);
+        users.put(newUser.getId(), newUser);
+        return newUser;
     }
 
     public List<User> getAll() {

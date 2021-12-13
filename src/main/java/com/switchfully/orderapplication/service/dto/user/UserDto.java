@@ -5,6 +5,7 @@ import com.switchfully.orderapplication.domain.email.Email;
 import com.switchfully.orderapplication.domain.phoneNumber.PhoneNumber;
 import com.switchfully.orderapplication.domain.user.User;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class UserDto {
@@ -98,5 +99,18 @@ public class UserDto {
     public UserDto setUserRole(User.Role userRole) {
         this.userRole = userRole;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserDto)) return false;
+        UserDto userDto = (UserDto) o;
+        return getId().equals(userDto.getId()) && getFirstName().equals(userDto.getFirstName()) && getLastName().equals(userDto.getLastName()) && getEmail().equals(userDto.getEmail()) && getAddress().equals(userDto.getAddress()) && getPhoneNumber().equals(userDto.getPhoneNumber()) && getUsername().equals(userDto.getUsername()) && getPassword().equals(userDto.getPassword()) && getUserRole() == userDto.getUserRole();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getFirstName(), getLastName(), getEmail(), getAddress(), getPhoneNumber(), getUsername(), getPassword(), getUserRole());
     }
 }

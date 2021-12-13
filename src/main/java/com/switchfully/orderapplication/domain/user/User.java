@@ -6,6 +6,7 @@ import com.switchfully.orderapplication.domain.feature.Feature;
 import com.switchfully.orderapplication.domain.phoneNumber.PhoneNumber;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class User {
@@ -118,5 +119,18 @@ public class User {
     public User setUserRole(Role userRole) {
         this.userRole = userRole;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return getId().equals(user.getId()) && getFirstName().equals(user.getFirstName()) && getLastName().equals(user.getLastName()) && getEmail().equals(user.getEmail()) && getAddress().equals(user.getAddress()) && getPhoneNumber().equals(user.getPhoneNumber()) && getUsername().equals(user.getUsername()) && getPassword().equals(user.getPassword()) && getUserRole() == user.getUserRole();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getFirstName(), getLastName(), getEmail(), getAddress(), getPhoneNumber(), getUsername(), getPassword(), getUserRole());
     }
 }
