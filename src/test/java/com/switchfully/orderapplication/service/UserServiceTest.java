@@ -18,6 +18,7 @@ import org.mockito.junit.MockitoJUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -50,7 +51,11 @@ class UserServiceTest {
 
     @Test
     void givenASingleUserInRepository_whenGetAll_thenReturnUser() {
+        userService.createUser(userMichelle);
 
+        List<UserDto> usersInApp = new ArrayList<>();
+
+        Assertions.assertThat(userRepository.getAll().containsAll(usersInApp));
 
     }
 
