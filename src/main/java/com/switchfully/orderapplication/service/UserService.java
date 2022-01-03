@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 import com.switchfully.orderapplication.repository.UserRepository;
 import com.switchfully.orderapplication.service.mapper.UserMapper;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class UserService {
 
     private final UserMapper userMapper;

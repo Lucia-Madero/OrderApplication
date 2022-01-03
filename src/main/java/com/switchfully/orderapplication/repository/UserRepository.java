@@ -4,33 +4,40 @@ import com.switchfully.orderapplication.domain.email.Email;
 import com.switchfully.orderapplication.domain.user.User;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Repository
 public class UserRepository {
 
-    private final HashMap<UUID, User> users = new HashMap<>();
+    @PersistenceContext
+    EntityManager entityManager;
 
     public User save(User newUser) {
-        users.put(newUser.getId(), newUser);
+      entityManager.persist(newUser);
         return newUser;
+
     }
 
     public List<User> getAll() {
-       return users.values().stream().toList();
+        String sql = "select u from User u";
+        return entityManager.createQuery(sql, User.class)
+                .getResultList();
     }
 
     public User getById(UUID id) {
-        return users.get(id);
+        String sql = "select u from User u where u.id = :id";
+        return entityManager.createQuery(sql, User.class)
+                .setParameter("id", id)
+                .getSingleResult();
     }
 
 
     public List<Email> getAllEmailAddress() {
-        return users.values().stream()
-                .map(User::getEmail)
-                .collect(Collectors.toList());
+        String sql = "select e from Email e";
+                return entityManager.createQuery(sql, Email.class)
+                .getResultList();
     }
 }
