@@ -10,7 +10,7 @@ public class Order {
 
     private final UUID orderId = UUID.randomUUID();
     private final List<ItemGroup> itemGroupsInOrder;
-    private int totalPriceOfOrder;
+    private double totalPriceOfOrder;
     private final UUID customerId;
     private LocalDate shippingDate;
 
@@ -31,11 +31,11 @@ public class Order {
         return customerId;
     }
 
-    public int getTotalPriceOfOrder() {
+    public double getTotalPriceOfOrder() {
         return totalPriceOfOrder;
     }
 
-    public Order setTotalPriceOfOrder(int totalPriceOfOrder) {
+    public Order setTotalPriceOfOrder(double totalPriceOfOrder) {
         this.totalPriceOfOrder = totalPriceOfOrder;
         return this;
     }

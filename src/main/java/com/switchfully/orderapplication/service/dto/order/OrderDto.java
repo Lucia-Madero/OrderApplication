@@ -1,6 +1,5 @@
 package com.switchfully.orderapplication.service.dto.order;
 
-import com.switchfully.orderapplication.domain.item.Item;
 import com.switchfully.orderapplication.domain.item.ItemGroup;
 
 import java.time.LocalDate;
@@ -11,7 +10,7 @@ public class OrderDto {
 
     private UUID uuid = UUID.randomUUID();
     private List<ItemGroup> itemGroupsInOrder;
-    private int totalPriceInOrder;
+    private double totalPriceInOrder;
     private UUID customerId;
     private LocalDate shippingDate;
 
@@ -29,7 +28,7 @@ public class OrderDto {
         return this;
     }
 
-    public OrderDto setTotalPriceInOrder(int totalPriceInOrder) {
+    public OrderDto setTotalPriceInOrder(double totalPriceInOrder) {
         this.totalPriceInOrder = totalPriceInOrder;
         return this;
     }
@@ -48,7 +47,7 @@ public class OrderDto {
         return itemGroupsInOrder;
     }
 
-    public int getTotalPriceInOrder() {
+    public double getTotalPriceInOrder() {
         return totalPriceInOrder;
     }
 

@@ -48,8 +48,8 @@ public class OrderService {
         }
     }
 
-    public int calculateTotalPriceOfOrder(List<ItemGroup> itemGroups) {
-        int price = 0;
+    public double calculateTotalPriceOfOrder(List<ItemGroup> itemGroups) {
+        double price = 0;
         int amount = 0;
         for (ItemGroup item : itemGroups) {
             Item itemInItemGroup = itemRepository.getItemById(item.getSelectedItemId());
