@@ -11,6 +11,7 @@ import com.switchfully.orderapplication.service.mapper.UserMapper;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mock;
@@ -28,7 +29,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
 class UserServiceTest {
 
     UserService userService;
@@ -38,7 +38,7 @@ class UserServiceTest {
 
     CreateUserDto userMichelle;
     User userBill;
-
+@Disabled
     @BeforeEach
     void setup() {
         userMichelle = new CreateUserDto("Michelle", "Obama", new Email("michelle", "obama.com"), new Address("President Avenue", "156", "4598", "Washington DC"), new PhoneNumber("1", "55598769"), "michelle", "obama", User.Role.CUSTOMER);
@@ -48,7 +48,7 @@ class UserServiceTest {
         userService = new UserService(userRepositoryMock, userMapperMock);
     }
 
-
+@Disabled
     @Test
     void givenACreateUserDto_whenCreateUser_thenAddUserToUserRepository() {
        User userFromMichelle = new User(userMichelle.getFirstName(), userMichelle.getLastName(), userMichelle.getEmail(), userMichelle.getAddress(), userMichelle.getPhoneNumber(), userMichelle.getUsername(), userMichelle.getPassword(), userMichelle.getUserRole());
