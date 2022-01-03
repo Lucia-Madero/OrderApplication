@@ -1,5 +1,7 @@
 package com.switchfully.orderapplication.service.dto.item;
 
+import java.util.UUID;
+
 public class UpdateItemDto {
 
     private String name;
@@ -29,7 +31,7 @@ public class UpdateItemDto {
         return price;
     }
 
-    public UpdateItemDto setPrice(int price) {
+    public UpdateItemDto setPrice(double price) {
         this.price = price;
         return this;
     }
@@ -42,4 +44,6 @@ public class UpdateItemDto {
         this.amountInStock = amountInStock;
         return this;
     }
+
+
 }

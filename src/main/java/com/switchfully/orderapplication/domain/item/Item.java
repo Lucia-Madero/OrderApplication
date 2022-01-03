@@ -1,10 +1,13 @@
 package com.switchfully.orderapplication.domain.item;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
 @Table(name = "item")
+@DynamicUpdate
 public class Item {
 
     @Id
@@ -30,8 +33,21 @@ public class Item {
         this.amountInStock = amountInStock;
     }
 
+    public Item(UUID id, String name, String description, double price, int amountInStock) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.amountInStock = amountInStock;
+    }
+    // Required by Hibernate
     protected Item() {
 
+    }
+
+    public Item setId(UUID id) {
+        this.id = id;
+        return this;
     }
 
     public UUID getId() {

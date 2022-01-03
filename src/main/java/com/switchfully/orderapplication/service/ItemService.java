@@ -44,8 +44,8 @@ public class ItemService {
     }
 
     public ItemDto updateItem(UpdateItemDto updateItemDto, UUID itemId) {
-       Item itemToUpdate= itemMapper.mapUpdateItemDtoToItemDto(updateItemDto);
-       itemRepository.add(itemToUpdate);
+       Item itemToUpdate = itemMapper.mapUpdateItemDtoToItemDto(updateItemDto, itemId);
+       itemRepository.updateItem(itemToUpdate);
        return itemMapper.mapItemToItemDto(itemToUpdate);
     }
 }

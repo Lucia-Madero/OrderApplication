@@ -6,6 +6,8 @@ import com.switchfully.orderapplication.service.dto.item.ItemDto;
 import com.switchfully.orderapplication.service.dto.item.UpdateItemDto;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @Component
 public class ItemMapper {
 
@@ -26,8 +28,10 @@ public class ItemMapper {
 
     }
 
-    public Item mapUpdateItemDtoToItemDto(UpdateItemDto updateItemDto) {
-        return new Item(updateItemDto.getName(),
+    public Item mapUpdateItemDtoToItemDto(UpdateItemDto updateItemDto, UUID itemId) {
+                return new Item(
+                itemId,
+                updateItemDto.getName(),
                 updateItemDto.getDescription(),
                 updateItemDto.getPrice(),
                 updateItemDto.getAmountInStock());

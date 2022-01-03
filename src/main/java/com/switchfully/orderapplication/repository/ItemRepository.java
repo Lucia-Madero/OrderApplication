@@ -25,4 +25,8 @@ public class ItemRepository {
                 .setParameter("id", itemId)
                 .getSingleResult();
     }
+
+    public Item updateItem(Item itemToUpdate) {
+        return entityManager.merge(itemToUpdate);
+    }
 }
