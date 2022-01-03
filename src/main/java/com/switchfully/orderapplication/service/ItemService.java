@@ -9,11 +9,13 @@ import com.switchfully.orderapplication.service.dto.item.UpdateItemDto;
 import com.switchfully.orderapplication.service.mapper.ItemMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 
 
 @Service
+@Transactional
 public class ItemService {
 
     private final ItemRepository itemRepository;

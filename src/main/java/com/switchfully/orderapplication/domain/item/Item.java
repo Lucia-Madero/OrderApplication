@@ -1,19 +1,15 @@
 package com.switchfully.orderapplication.domain.item;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table (name = "items")
+@Table(name = "item")
 public class Item {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator")
-    private final UUID id = UUID.randomUUID();
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @Column(name = "name")
     private String name;
