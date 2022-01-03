@@ -1,7 +1,5 @@
 package com.switchfully.orderapplication.service.dto.item;
 
-import java.util.UUID;
-
 public class UpdateItemDto {
 
     private String name;
