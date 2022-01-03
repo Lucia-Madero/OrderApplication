@@ -4,21 +4,45 @@ import com.switchfully.orderapplication.domain.adress.Address;
 import com.switchfully.orderapplication.domain.email.Email;
 import com.switchfully.orderapplication.domain.feature.Feature;
 import com.switchfully.orderapplication.domain.phoneNumber.PhoneNumber;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+@Entity
+@Table (name = "user")
 public class User {
 
-    private final UUID id = UUID.randomUUID();
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
+    @Column (name = "firstname" )
     private String firstName;
+
+    @Column (name = "lastname")
     private String lastName;
+
+    @JoinColumn (name = "fk_email")
+    @OneToOne (cascade = {CascadeType.ALL})
     private Email email;
+
+    @JoinColumn (name = "fk_address")
+    @ManyToOne(cascade = {CascadeType.ALL})
     private Address address;
+
+    @JoinColumn (name = "fk_phone_number")
+    @ManyToOne(cascade = {CascadeType.ALL})
     private PhoneNumber phoneNumber;
-    private final String username;
-    private final String password;
+
+    private String username;
+    private String password;
+
+    @JoinColumn(name = "role")
+    @Enumerated(EnumType.STRING)
     private Role userRole;
 
     public User(String firstName, String lastName, Email email, Address address, PhoneNumber phoneNumber, String username, String password, Role userRole) {
@@ -33,6 +57,10 @@ public class User {
         this.userRole = userRole;
     }
 
+    // Required by Hibernate
+    public User() {
+
+    }
 
     public enum Role {
         ADMIN(List.of(Feature.ADD_ITEM,Feature.VIEW_ALL_CUSTOMERS, Feature.VIEW_SINGLE_CUSTOMER, Feature.UPDATE_ITEM)),

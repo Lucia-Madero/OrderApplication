@@ -1,16 +1,31 @@
 package com.switchfully.orderapplication.domain.email;
 
+import javax.persistence.*;
 import java.util.Objects;
+import java.util.UUID;
 
-
+@Entity
+@Table (name = "email")
 public class Email {
 
-    private final String username;
-    private final String domain;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
+    @Column (name = "username")
+    private String username;
+
+    @Column (name = "domain")
+    private String domain;
 
     public Email(String username, String domain) {
         this.username = username;
         this.domain = domain;
+    }
+
+    // Required by Hibernate
+    public Email() {
+
     }
 
     public String getUsername() {

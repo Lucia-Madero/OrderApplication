@@ -1,19 +1,39 @@
 package com.switchfully.orderapplication.domain.adress;
 
+import javax.persistence.*;
 import java.util.Objects;
+import java.util.UUID;
 
+@Entity
+@Table (name = "address")
 public class Address {
 
-    private final String streetName;
-    private final String streetNumber;
-    private final String postCode;
-    private final String city;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
+    @Column (name = "streetname")
+    private String streetName;
+
+    @Column (name = "streetnumber")
+    private String streetNumber;
+
+    @Column (name = "postCode")
+    private String postCode;
+
+    @Column (name = "city")
+    private String city;
 
     public Address(String streetName, String streetNumber, String postCode, String city) {
         this.streetName = streetName;
         this.streetNumber = streetNumber;
         this.postCode = postCode;
         this.city = city;
+    }
+
+    // Required by Hibernate
+    public Address() {
+
     }
 
     public String getStreetName() {

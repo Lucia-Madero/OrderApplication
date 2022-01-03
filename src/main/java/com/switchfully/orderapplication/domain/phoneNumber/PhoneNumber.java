@@ -1,15 +1,31 @@
 package com.switchfully.orderapplication.domain.phoneNumber;
 
+import javax.persistence.*;
 import java.util.Objects;
+import java.util.UUID;
 
+@Entity
+@Table (name = "phone_number")
 public class PhoneNumber {
 
-    private final String prefix;
-    private final String number;
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private UUID id;
+
+    @Column (name = "prefix")
+    private String prefix;
+
+    @Column (name = "number")
+    private String number;
 
     public PhoneNumber(String prefix, String number) {
         this.prefix = prefix;
         this.number = number;
+    }
+
+    // Required by Hibernate
+    public PhoneNumber() {
+
     }
 
     public String getPrefix() {
