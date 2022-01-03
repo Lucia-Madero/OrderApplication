@@ -1,13 +1,30 @@
 package com.switchfully.orderapplication.domain.item;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.UUID;
 
+@Entity
+@Table (name = "items")
 public class Item {
 
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator")
     private final UUID id = UUID.randomUUID();
-    private final String name;
-    private final String description;
-    private final int price;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "price")
+    private double price;
+
+    @Column(name = "amount_in_stock")
     private int amountInStock;
 
     public Item(String name, String description, int price, int amountInStock) {
@@ -15,6 +32,10 @@ public class Item {
         this.description = description;
         this.price = price;
         this.amountInStock = amountInStock;
+    }
+
+    protected Item() {
+
     }
 
     public UUID getId() {
@@ -29,7 +50,7 @@ public class Item {
         return description;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -37,7 +58,7 @@ public class Item {
         return amountInStock;
     }
 
-    public boolean isInStock (Item itemToCheck) {
+    public boolean isInStock(Item itemToCheck) {
         return itemToCheck.getAmountInStock() >= 1;
     }
 
