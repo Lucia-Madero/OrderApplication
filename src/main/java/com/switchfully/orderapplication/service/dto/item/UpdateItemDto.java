@@ -4,7 +4,7 @@ public class UpdateItemDto {
 
     private String name;
     private String description;
-    private int price;
+    private double price;
     private int amountInStock;
 
     public String getName() {
@@ -25,7 +25,7 @@ public class UpdateItemDto {
         return this;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 

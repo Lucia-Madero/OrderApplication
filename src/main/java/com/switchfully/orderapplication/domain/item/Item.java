@@ -27,7 +27,7 @@ public class Item {
     @Column(name = "amount_in_stock")
     private int amountInStock;
 
-    public Item(String name, String description, int price, int amountInStock) {
+    public Item(String name, String description, double price, int amountInStock) {
         this.name = name;
         this.description = description;
         this.price = price;
