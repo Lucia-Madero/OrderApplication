@@ -13,7 +13,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table (name = "user")
+@Table (name = "user_table")
 public class User {
 
     @Id
@@ -38,10 +38,13 @@ public class User {
     @ManyToOne(cascade = {CascadeType.ALL})
     private PhoneNumber phoneNumber;
 
+    @Column (name = "username")
     private String username;
+
+    @Column (name = "password")
     private String password;
 
-    @JoinColumn(name = "role")
+    @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private Role userRole;
 
