@@ -3,22 +3,26 @@ package com.switchfully.orderapplication.repository;
 import com.switchfully.orderapplication.domain.item.Item;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.UUID;
 
 @Repository
+
 public class ItemRepository {
 
-    private final HashMap<UUID, Item> itemsInShop = new HashMap<>();
+    @PersistenceContext
+    EntityManager entityManager;
 
-    public ItemRepository() {
-    }
 
     public void add(Item itemToAdd) {
-        itemsInShop.put(itemToAdd.getId(), itemToAdd);
+        entityManager.persist(itemToAdd);
     }
 
     public Item getItemById (UUID itemId) {
-        return itemsInShop.get(itemId);
+        String sql = "SELECT i from Item i where i.id = :id";
+        return entityManager.createQuery(sql, Item.class)
+                .setParameter("id", itemId)
+                .getSingleResult();
     }
 }
